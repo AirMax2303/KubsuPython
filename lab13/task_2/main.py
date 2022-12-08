@@ -26,7 +26,7 @@ def get_word():
 
 errors = 0
 correct_answer = 0
-while errors < 2 and correct_answer <= len(words):
+while errors < 2 and correct_answer <= len(words) - 1:
     eng, rus = get_word()
     if input("%s = " % eng).lower() == rus:
         print("Верно")
