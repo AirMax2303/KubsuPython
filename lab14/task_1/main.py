@@ -21,6 +21,7 @@ window = tkinter.Tk()
 frame = tkinter.Frame(window)
 
 window.title("Перевод температурных значений от Максима Андреевича")
+window.geometry('500x100')
 
 label = tkinter.Label(frame, text='Введите значение в фарингейтах: ', font=17)
 entry = tkinter.Entry(frame, width=30)
