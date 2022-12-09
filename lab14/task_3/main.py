@@ -8,7 +8,7 @@ from tkinter import *
 window = Tk()
 window.title("Text translator by Maxim Lysenko")
 window.geometry('400x250')
-#lbl = Label(window, text="Привет", font=("Arial Bold", 50))
-#lbl.grid(column=0, row=0)
+# lbl = Label(window, text="Привет", font=("Arial Bold", 50))
+# lbl.grid(column=0, row=0)
 
 window.mainloop()

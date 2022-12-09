@@ -5,7 +5,7 @@ import tkinter
 
 def transference():
     try:
-        result = ((float(entry.get())-32)/1.8)
+        result = ((float(entry.get()) - 32) / 1.8)
         labelResult.config(text=result)
         checker = True
         labelResult.pack()
@@ -21,7 +21,7 @@ window = tkinter.Tk()
 frame = tkinter.Frame(window)
 
 window.title("Перевод температурных значений от Максима Андреевича")
-window.geometry('500x100')
+window.geometry('500x120')
 
 label = tkinter.Label(frame, text='Введите значение в фарингейтах: ', font=17)
 entry = tkinter.Entry(frame, width=30)
@@ -35,7 +35,7 @@ frame.pack()
 label.pack()
 entry.pack()
 label.pack()
-if checker == True:
+if checker:
     labelResult.pack()
 buttonConvert.pack()
 buttonQuit.pack()

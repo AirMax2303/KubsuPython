@@ -10,19 +10,21 @@ words = {
     "студент": "student",
 }
 
-list_word= []
+list_word = []
+
 
 def get_word():
     check_true = False
-    _word = list(words.items())[random.randint(0, len(words)-1)]
+    _word = list(words.items())[random.randint(0, len(words) - 1)]
     while check_true == False:
         if _word in list_word:
-            _word = list(words.items())[random.randint(0, len(words)-1)]
+            _word = list(words.items())[random.randint(0, len(words) - 1)]
         else:
             check_true == True
             list_word.append(_word)
             break
     return _word
+
 
 errors = 0
 correct_answer = 0
