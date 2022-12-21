@@ -77,7 +77,7 @@ INSERT INTO "medicines" ("medicines_id","name","country","date","storage_life") 
 
 with sqlite3.connect("Pharmacy.db") as db:
     cursor = db.cursor()
-    with open('Pharmacy.sql', 'r') as f:  # Not sure if the 'r' is necessary, but recommended.
+    with open('Pharmacy.sql', 'r') as f:
         cursor.executescript(f.read())
         insertData()
         db.commit()
@@ -92,7 +92,97 @@ FROM sales_journal
 LEFT JOIN employees on employees.id = sales_journal.employees_id
 LEFT JOIN medicines on medicines.medicines_id = sales_journal.medicines_id
                 """)
+        print('-------------------------------------------------')
         records = cursor.fetchall()
         for row in records:
             print(row[0], ' ', row[1], ' ', row[2], ' ', row[3], ' ', row[4], "\n")
-
+        print('-------------------------------------------------')
+        print('table: employees')
+        cursor.execute("""SELECT * FROM employees""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], ' ', row[2], "\n")
+        print('-------------------------------------------------')
+        print('table: medicines')
+        cursor.execute("""SELECT * FROM medicines""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], ' ', row[2], ' ', row[3], ' ', row[4], "\n")
+        print('-------------------------------------------------')
+        print('table: rules')
+        cursor.execute("""SELECT * FROM rules""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], "\n")
+        print('-------------------------------------------------')
+        print('table: sales_journal')
+        cursor.execute("""SELECT * FROM sales_journal""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], ' ', row[2], ' ', row[3], ' ', row[4], "\n")
+        print('-------------------------------------------------')
+        print('table: storage')
+        cursor.execute("""SELECT * FROM storage""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], ' ', row[2], ' ', row[3], "\n")
+        print('-------------------------------------------------')
+        cursor.execute("""SELECT storage.id_medicines, storage.count FROM storage""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], "\n")
+        print('-------------------------------------------------')
+        cursor.execute("""SELECT storage.id_medicines,storage.date_add FROM storage""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], "\n")
+        print('-------------------------------------------------')
+        cursor.execute("""SELECT medicines.name, medicines.country FROM medicines""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], "\n")
+        print('-------------------------------------------------')
+        cursor.execute("""SELECT medicines.name, medicines.storage_life FROM medicines""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], "\n")
+        print('-------------------------------------------------')
+        cursor.execute("""SELECT medicines.name, medicines.date FROM medicines""")
+        records = cursor.fetchall()
+        for row in records:
+            print(row[0], ' ', row[1], "\n")
+        print('-------------------------------------------------')
+        cursor.execute("""
+        UPDATE employees
+        SET id_rule = 3
+        WHERE id_rule = 2
+        """)
+        cursor.execute("""
+        UPDATE employees
+        SET id_rule = 4
+        WHERE id_rule = 2
+        """)
+        cursor.execute("""
+        UPDATE medicines
+        SET storage_life = 30
+        WHERE medicines_id = 2
+        """)
+        cursor.execute("""
+        UPDATE storage
+        SET count = count - 1
+        WHERE id_medicines = 1
+        """)
+        cursor.execute("""
+        UPDATE storage
+        SET count = count - 1
+        WHERE id_medicines = 5
+        """)
+        cursor.execute("""
+        UPDATE storage
+        SET count = count - 4
+        WHERE id_medicines = 11
+        """)
+        cursor.execute("""
+        DELETE FROM sales_journal
+        WHERE sales_id = 9;
+        """)
