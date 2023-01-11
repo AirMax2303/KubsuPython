@@ -1,0 +1,15 @@
+{% extends 'mainPage/base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+<h1>Информационный блок</h1>
+    {% for el in tech %}
+        <div class="alert alert-primary mt-2">
+            <h3>{{ el.name }} {{ el.model }}</h3>
+            <p><a href="show-details/{{ el.name_id }}/{{ el.address_id }}/{{ el.id }}" style="text-decoration: none; color: black" >Подробнее</a></p>
+        </div>
+    {% endfor %}
+{% endblock %}

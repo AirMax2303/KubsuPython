@@ -1,0 +1,25 @@
+{% extends 'mainPage/base.html' %}
+
+{% block title %}
+    Подробная информация
+{% endblock %}
+
+{% block content %}
+<h1>Главная страница</h1>
+        <div class="alert alert-primary mt-2">
+            <h1>Производитель: {{ man.name }}</h1>
+            <h2>Модель: {{ tech.model }}</h2>
+            <h2>Адрес магазина, где продается товар: {{ shop.address }}</h2>
+            <h2>Цена: {{ tech.price }}</h2>
+        </div>
+        <div class="alert alert-primary mt-2">
+            <h1>Производитель: {{ man.name }}</h1>
+            <h2>Страна: {{ man.country }}</h2>
+            <h2>Ген. директор: {{ man.CEO }}</h2>
+        </div>
+        <div class="alert alert-primary mt-2">
+            <h1>Магазин: {{ shop.name }}</h1>
+            <h2>Адрес: {{ shop.address }}</h2>
+            <h2>Статус: {{ shop.status }}</h2>
+        </div>
+{% endblock %}

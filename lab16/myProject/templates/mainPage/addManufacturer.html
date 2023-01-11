@@ -1,0 +1,26 @@
+{% extends 'mainPage/base.html' %}
+
+{% block title %}
+    Добавить производителя
+{% endblock %}
+
+{% block content %}
+    <h1>Добавить производителя</h1>
+    <form method="post" class="row justify-content-center align-items-center">
+        {% csrf_token %}
+        <label>
+            Название
+            {{ form.name }}
+        </label><br />
+        <label>
+            Страна
+            {{ form.country }}
+        </label><br />
+        <label>
+            Ген.Директор
+            {{ form.CEO }}
+        </label><br />
+        <button type="submit" class="btn btn-success mt-3">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

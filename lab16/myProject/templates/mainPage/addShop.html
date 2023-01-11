@@ -1,0 +1,26 @@
+{% extends 'mainPage/base.html' %}
+
+{% block title %}
+    Добавить магазин
+{% endblock %}
+
+{% block content %}
+    <h1>Добавить информацию о магазине</h1>
+    <form method="post" class="row justify-content-center align-items-center">
+        {% csrf_token %}
+        <label>
+            Название
+            {{ form.name }}
+        </label><br />
+        <label>
+            Адрес
+            {{ form.address }}
+        </label><br />
+        <label>
+            Статус
+            {{ form.status }}
+        </label><br />
+        <button type="submit" class="btn btn-success mt-3">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

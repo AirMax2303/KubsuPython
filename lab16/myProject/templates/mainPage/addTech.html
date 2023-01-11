@@ -1,0 +1,30 @@
+{% extends 'mainPage/base.html' %}
+
+{% block title %}
+    Добавить технику
+{% endblock %}
+
+{% block content %}
+    <h1>Добавить информацию о состоянии техники</h1>
+    <form method="post" class="row justify-content-center align-items-center">
+        {% csrf_token %}
+        <p>
+            Производитель<br>
+            {{ form.name }}
+        </p>
+        <p>
+            Модель
+            {{ form.model }}
+        </p>
+        <p>
+            Адрес<br>
+            {{ form.address }}
+        </p>
+        <p>
+            Цена
+            {{ form.price }}
+        </p>
+        <button type="submit" class="btn btn-success mt-3">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}
